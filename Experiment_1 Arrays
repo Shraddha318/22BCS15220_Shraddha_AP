@@ -1,8 +1,8 @@
 package EX1;
+
 // Q1-Remove Duplicates from Sorted Array
 // https://leetcode.com/problems/remove-duplicates-from-sorted-array/
-
-class Solution {
+class Solution_RemoveDuplicates {
     public int removeDuplicates(int[] nums) {
         if(nums.length==0) return 0;
         int j=0;
@@ -17,12 +17,10 @@ class Solution {
 }
 
 // Q2-Insertion Sort
-//https://www.geeksforgeeks.org/problems/insertion-sort/1
-
-class Solution {
+// https://www.geeksforgeeks.org/problems/insertion-sort/1
+class Solution_InsertionSort {
     // Please change the array in-place
     public void insertionSort(int arr[]) {
-        // code here
         for (int i = 0; i<=arr.length-1; i++){
             int j = i;
             while(j >0 && arr[j-1] > arr[j] ){
@@ -34,9 +32,10 @@ class Solution {
         }
     }
 }
-//Q3-Contains Duplicate
-//https://leetcode.com/problems/contains-duplicate/description/
-class Solution {
+
+// Q3-Contains Duplicate
+// https://leetcode.com/problems/contains-duplicate/description/
+class Solution_ContainsDuplicate {
     public boolean containsDuplicate(int[] nums) {
         Arrays.sort(nums);
         for(int i=1;i<nums.length;i++){
@@ -48,9 +47,9 @@ class Solution {
     }
 }
 
-//Q4-Two Sum
-//https://leetcode.com/problems/two-sum/description/
-class Solution {
+// Q4-Two Sum
+// https://leetcode.com/problems/two-sum/description/
+class Solution_TwoSum {
     public int[] twoSum(int[] nums, int target) {
         int n=nums.length;
         for(int i=0;i<n-1;i++){
@@ -64,10 +63,9 @@ class Solution {
     }
 }
 
-//Q5-Majority Element
-//https://leetcode.com/problems/majority-element/description/
-
-class Solution {
+// Q5-Majority Element
+// https://leetcode.com/problems/majority-element/description/
+class Solution_MajorityElement {
     public int majorityElement(int[] nums) {
         Arrays.sort(nums);
         int n = nums.length;
@@ -75,16 +73,15 @@ class Solution {
     }
 }
 
-//Q6-Valid Palindrome
-//https://leetcode.com/problems/valid-palindrome/description/
-class Solution {
+// Q6-Valid Palindrome
+// https://leetcode.com/problems/valid-palindrome/description/
+class Solution_ValidPalindrome {
     public boolean isPalindrome(String s) {
         s = s.toLowerCase();
         int start = 0;
         int end = s.length() - 1;
 
         while (start <= end) {
-            // Skip non-alphanumeric characters
             while (start < end && !Character.isLetterOrDigit(s.charAt(start))) {
                 start++;
             }
@@ -102,17 +99,15 @@ class Solution {
     }
 }
 
-//Q7-3 Sum
-//https://leetcode.com/problems/3sum/description/
-
-class Solution {
+// Q7-3 Sum
+// https://leetcode.com/problems/3sum/description/
+class Solution_ThreeSum {
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
         Arrays.sort(nums);
         int n = nums.length;
 
         for (int i = 0; i < n - 2; i++) {
-            // Skip duplicates for the first element
             if (i > 0 && nums[i] == nums[i - 1]) continue;
 
             int start = i + 1;
@@ -124,7 +119,6 @@ class Solution {
                 if (sum == 0) {
                     result.add(Arrays.asList(nums[i], nums[start], nums[end]));
 
-                    // Skip duplicates for the second and third elements
                     while (start < end && nums[start] == nums[start + 1]) start++;
                     while (start < end && nums[end] == nums[end - 1]) end--;
 
@@ -141,11 +135,10 @@ class Solution {
     }
 }
 
-//Q8-Find the Duplicate Number
-//https://leetcode.com/problems/find-the-duplicate-number/description/
-class Solution {
+// Q8-Find the Duplicate Number
+// https://leetcode.com/problems/find-the-duplicate-number/description/
+class Solution_FindDuplicate {
     public int findDuplicate(int[] nums) {
-        // Arrays.sort(nums);
         int n=nums.length;
         int j=0;
         while(j<n){
@@ -162,11 +155,6 @@ class Solution {
                 j++;
             }
         }
-       /* for(int i=0;i<n-1;i++){
-            if(nums[i]-1!=i){
-                return nums[i];
-            }
-        }*/
         return -1;
     }
     public static void swap(int[] nums,int i,int j){
@@ -175,10 +163,10 @@ class Solution {
         nums[j]=temp;
     }
 }
-//Q9- Longest Substring Without Repeating Characters
-//https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
 
-class Solution {
+// Q9-Longest Substring Without Repeating Characters
+// https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
+class Solution_LongestSubstring {
     public int lengthOfLongestSubstring(String s) {
         int n = s.length();
         if (n == 0) {
@@ -187,10 +175,10 @@ class Solution {
 
         int l = 0;
         int start = 0;
-        int[] lastIndex = new int[256]; // Assuming ASCII character set
+        int[] lastIndex = new int[256];
 
         for (int i = 0; i < 256; i++) {
-            lastIndex[i] = -1; // Initialize all elements to -1
+            lastIndex[i] = -1;
         }
 
         for (int end = 0; end < n; end++) {
@@ -203,11 +191,13 @@ class Solution {
         }
 
         return l;
+    }
 }
 
-//Q10-Set Matrix zeroes
-//https://leetcode.com/problems/set-matrix-zeroes/
- public static void setZeroes(int[][] matrix) {
+// Q10-Set Matrix Zeroes
+// https://leetcode.com/problems/set-matrix-zeroes/
+class Solution_SetMatrixZeroes {
+    public void setZeroes(int[][] matrix) {
         int m = matrix.length, n = matrix[0].length;
         boolean firstRowZero = false, firstColZero = false;
 
@@ -248,9 +238,10 @@ class Solution {
     }
 }
 
-//Q11-Jump Game 
-//https://leetcode.com/problems/jump-game/
-  public static int jump(int[] nums) {
+// Q11-Jump Game
+// https://leetcode.com/problems/jump-game/
+class Solution_JumpGame {
+    public int jump(int[] nums) {
         int n = nums.length;
         if (n == 1) return 0;
 
@@ -268,6 +259,4 @@ class Solution {
         }
         return jumps;
     }
-
-
-
+}
